@@ -16,7 +16,7 @@ public class Generator {
 
     public static String generateRandomRole() {
         try {
-            List<String> roles = Arrays.asList(ROLE, ADMIN);
+            List<String> roles = Arrays.asList(ROLE_USER, ROLE_ADMIN);
             Random random = SecureRandom.getInstanceStrong();
             return roles.get(random.nextInt(roles.size()));
         } catch (NoSuchAlgorithmException exception) {

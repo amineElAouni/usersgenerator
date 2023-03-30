@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -43,8 +44,8 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         return new ResponseEntity<>(apiErrorResponse, notFound);
     }
 
-    @ExceptionHandler(UserAccessDeniedProfile.class)
-    public final ResponseEntity<Object> handleUserAccessDeniedProfileException(UserAccessDeniedProfile ex) {
+    @ExceptionHandler(UserAccessDeniedProfileException.class)
+    public final ResponseEntity<Object> handleUserAccessDeniedProfileException(UserAccessDeniedProfileException ex) {
         HttpStatus forbidden = HttpStatus.FORBIDDEN;
         ApiErrorResponse apiErrorResponse = new ApiErrorResponse(
                 messageSource.getMessage(ACCESS_DENIED_USER_PROFILE_MESSAGE, null, Locale.ENGLISH),
@@ -52,6 +53,17 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
                 forbidden,
                 LocalDateTime.now());
         return new ResponseEntity<>(apiErrorResponse, forbidden);
+    }
+
+    @ExceptionHandler(UserAuthenticationException.class)
+    public final ResponseEntity<Object> handleUserAuthenticationException(UserAuthenticationException ex) {
+        HttpStatus unauthorized = HttpStatus.UNAUTHORIZED;
+        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(
+                messageSource.getMessage(AUTHENTICATION_ERROR_MESSAGE, null, Locale.ENGLISH),
+                ex.getMessage(),
+                unauthorized,
+                LocalDateTime.now());
+        return new ResponseEntity<>(apiErrorResponse, unauthorized);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
@@ -75,7 +87,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
 
     @ExceptionHandler(Exception.class)
-    public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
+    public final ResponseEntity<Object> handleAllExceptions(Exception ex) {
         HttpStatus serverError = HttpStatus.INTERNAL_SERVER_ERROR;
         ApiErrorResponse apiErrorResponse = new ApiErrorResponse(
                 messageSource.getMessage(INTERNAL_TECHNICAL_ERROR_MESSAGE, null, Locale.ENGLISH),
@@ -97,9 +109,9 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
 
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+    protected final ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         HttpStatus badRequest = HttpStatus.BAD_REQUEST;
-        ApiErrorResponse apiErrorResponse = null;
+        ApiErrorResponse apiErrorResponse;
         FieldError fieldError = Objects.requireNonNull(ex.getFieldError());
         String exceptionCode = Objects.requireNonNull(ex.getBindingResult().getFieldError().getCode());
         if (NOT_BLANK.equals(exceptionCode)) {
@@ -112,6 +124,24 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
                     badRequest,
                     LocalDateTime.now());
         }
+        else {
+            apiErrorResponse = new ApiErrorResponse(
+                    messageSource.getMessage(INVALID_FIELDS_MESSAGE, null, Locale.ENGLISH),
+                    ex.getMessage(),
+                    badRequest,
+                    LocalDateTime.now());
+        }
+        return new ResponseEntity<>(apiErrorResponse, badRequest);
+    }
+
+    @Override
+    protected final ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        HttpStatus badRequest = HttpStatus.BAD_REQUEST;
+        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(
+                    messageSource.getMessage(INVALID_FIELDS_MESSAGE, null, Locale.ENGLISH),
+                    ex.getMessage(),
+                    badRequest,
+                    LocalDateTime.now());
         return new ResponseEntity<>(apiErrorResponse, badRequest);
     }
 }

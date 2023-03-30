@@ -17,7 +17,6 @@ import java.io.OutputStream;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
-import static com.cires.usersgenerator.exception.constant.ResponseMessageConstant.AUTHENTICATION_ERROR_DESCRIPTION;
 import static com.cires.usersgenerator.exception.constant.ResponseMessageConstant.AUTHENTICATION_ERROR_MESSAGE;
 
 @Component
@@ -33,7 +32,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         HttpStatus unauthorized = HttpStatus.UNAUTHORIZED;
         ApiErrorResponse apiErrorResponse = new ApiErrorResponse(
                 messageSource.getMessage(AUTHENTICATION_ERROR_MESSAGE, null, Locale.ENGLISH),
-                messageSource.getMessage(AUTHENTICATION_ERROR_DESCRIPTION, null, Locale.ENGLISH),
+                authException.getMessage(),
                 unauthorized,
                 LocalDateTime.now());
         OutputStream out = httpServletResponse.getOutputStream();

@@ -14,9 +14,9 @@ public class GeneratorConstant {
 
     public static final String SPECIAL_CHARACTERS = "<>.,?/{}[]+_-)(*&%$@!=";
 
-    public static final String ROLE = "role";
+    public static final String ROLE_USER = "user";
 
-    public static final String ADMIN = "admin";
+    public static final String ROLE_ADMIN = "admin";
 
     public static final int MIN_BOUND = 6;
 
