@@ -1,4 +1,4 @@
-package com.cires.usersgenerator.model;
+package com.cires.usersgenerator.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

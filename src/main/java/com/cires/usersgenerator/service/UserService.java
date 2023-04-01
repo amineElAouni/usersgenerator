@@ -1,13 +1,13 @@
 package com.cires.usersgenerator.service;
 
 import com.cires.usersgenerator.common.JsonExporter;
+import com.cires.usersgenerator.domain.User;
 import com.cires.usersgenerator.dto.AuthenticationRequest;
 import com.cires.usersgenerator.dto.AuthenticationResponse;
 import com.cires.usersgenerator.dto.BatchResponse;
 import com.cires.usersgenerator.dto.UserDto;
 import com.cires.usersgenerator.exception.UserAuthenticationException;
 import com.cires.usersgenerator.mapper.UserMapper;
-import com.cires.usersgenerator.model.User;
 import com.cires.usersgenerator.repository.UserRepository;
 import com.cires.usersgenerator.security.jwt.JwtService;
 import com.fasterxml.jackson.databind.ObjectMapper;

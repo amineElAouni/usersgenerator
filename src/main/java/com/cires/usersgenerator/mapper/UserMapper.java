@@ -1,7 +1,7 @@
 package com.cires.usersgenerator.mapper;
 
 import com.cires.usersgenerator.dto.UserDto;
-import com.cires.usersgenerator.model.User;
+import com.cires.usersgenerator.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

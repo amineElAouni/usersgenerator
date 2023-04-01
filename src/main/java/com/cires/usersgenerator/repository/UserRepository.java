@@ -1,6 +1,6 @@
 package com.cires.usersgenerator.repository;
 
-import com.cires.usersgenerator.model.User;
+import com.cires.usersgenerator.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
