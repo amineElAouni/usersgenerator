@@ -34,7 +34,6 @@ import static com.cires.usersgenerator.swagger.SwaggerConstant.*;
 @RequestMapping("/api")
 @RequiredArgsConstructor
 @Validated
-@CrossOrigin(maxAge = 3600)
 public class UserController {
 
     private final UserService userService;
