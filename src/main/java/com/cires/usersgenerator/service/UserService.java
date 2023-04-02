@@ -102,12 +102,8 @@ public class UserService {
 
     public UserDto retrieveAuthenticatedUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Optional<UserDto> userDto = userRepository.findByEmail(((User) authentication.getPrincipal()).getEmail())
-                .map(userMapper::mapUserToUserDto);
-        return userDto.orElseThrow(() -> new UsernameNotFoundException(
-                        messageSource.getMessage(USER_NOT_FOUND_DESCRIPTION,
-                        new String[] {((User) authentication.getPrincipal()).getUserName()},
-                        Locale.ENGLISH)));
+        User user = (User) authentication.getPrincipal();
+        return userMapper.mapUserToUserDto(user);
     }
 
     @Secured(ROLE_ADMIN)
