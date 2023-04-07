@@ -47,13 +47,13 @@ public class UserService {
 
     private final ObjectMapper objectMapper;
 
-    private final UserMapper userMapper;
-
     private final JwtService jwtService;
 
     private final AuthenticationManager authenticationManager;
 
     private final MessageSource messageSource;
+
+    private final UserMapper userMapper;
 
     public byte[] generateUsersData(Integer count) {
         List<UserDto> users = new ArrayList<>();
