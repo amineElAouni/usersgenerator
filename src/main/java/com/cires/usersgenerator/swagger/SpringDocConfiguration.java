@@ -24,6 +24,10 @@ public class SpringDocConfiguration {
 
     @Bean
     public OpenAPI baseOpenApi() {
-        return new OpenAPI().info(new Info().title("User Documentation").version("1.0.0").description("User Documentation"));
+        return new OpenAPI()
+                    .info(new Info()
+                        .title("User Documentation")
+                        .version("1.0.0")
+                        .description("User Documentation"));
     }
 }

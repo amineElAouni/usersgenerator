@@ -21,7 +21,7 @@ logging:
   level:
     org:
       springframework:
-        web: DEBUG
+        web: INFO
 
 server:
   port: 9090
@@ -29,3 +29,9 @@ server:
 springdoc:
   api-docs:
     path: /api-docs
+
+jwt:
+  secret:
+    key: 78214125442A472D4A614E645267556B58703273357638792F423F4528482B4D
+  expiration:
+    time: 86400000
