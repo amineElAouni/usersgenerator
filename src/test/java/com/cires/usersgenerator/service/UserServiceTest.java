@@ -77,7 +77,7 @@ class UserServiceTest {
         Assertions.assertEquals(batchResponse.getUsersNotImportedWithSuccessCount(), 0);
     }
 
-    @Test()
+    @Test
     void shouldThrowUserAuthenticationExceptionInAuthApi() {
         Mockito.when(authenticationManager.authenticate(ArgumentMatchers.any())).thenThrow(new UserAuthenticationException("Username and password are incorrect"));
         AuthenticationRequest request = AuthenticationRequest.builder()
@@ -87,7 +87,7 @@ class UserServiceTest {
         Assertions.assertThrows(UserAuthenticationException.class, () -> userService.authenticate(request));
     }
 
-    @Test()
+    @Test
     void shouldGenerateTokenWhenCallAuthApi() {
         AuthenticationRequest request = AuthenticationRequest.builder()
                 .username("Stephane")
