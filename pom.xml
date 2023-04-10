@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.cires.usersgenerator</groupId>
     <artifactId>users-generator</artifactId>
-    <version>1.4</version>
+    <version>1.5-SNAPSHOT</version>
     <name>users-generator</name>
     <description>Users generator project</description>
     <properties>
@@ -25,7 +25,7 @@
     <scm>
         <developerConnection>scm:git:git@github.com:amineElAouni/usersgenerator.git</developerConnection>
         <url>https://github.com/amineElAouni/usersgenerator</url>
-      <tag>users-generator-1.4</tag>
+      <tag>users-generator-1.3</tag>
   </scm>
 
     <profiles>
