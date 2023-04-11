@@ -39,10 +39,4 @@ jobs:
       # run tests!
       - run: mvn clean
       - run: mvn compile
-      - run:
-            name: echo env var nexus username
-            # Add source command to execute code and make variables
-            # available in current step.
-            command: |
-              echo $NEXUS_RM_USERNAME
-              mvn deploy -s .circleci/settings.xml -Pnexus
+      - run: mvn deploy -X -s .circleci/settings.xml -Pnexus
