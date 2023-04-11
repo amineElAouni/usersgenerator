@@ -29,11 +29,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-          name: "echo an env var nexus username"
-          command: |
-            echo ${NEXUS_RM_USERNAME}
-            mvn dependency:go-offline
+      - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
@@ -43,4 +39,10 @@ jobs:
       # run tests!
       - run: mvn clean
       - run: mvn compile
-      - run: mvn deploy -s .circleci/settings.xml -Pnexus
+      - run:
+            name: echo env var nexus username
+            # Add source command to execute code and make variables
+            # available in current step.
+            command: |
+              echo $NEXUS_RM_USERNAME
+              mvn deploy -s .circleci/settings.xml -Pnexus
