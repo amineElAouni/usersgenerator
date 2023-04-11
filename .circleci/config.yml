@@ -32,7 +32,7 @@ jobs:
       - run:
           name: "echo an env var nexus username"
           command: |
-            echo $NEXUS_RM_USERNAME
+            echo ${NEXUS_RM_USERNAME}
             mvn dependency:go-offline
 
       - save_cache:
