@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <servers>
+        <server>
+            <id>packagecloud.release</id>
+            <password>${env.PCLOUD}</password>
+        </server>
+        <server>
+            <id>packagecloud.snapshot</id>
+            <password>${env.PCLOUD}</password>
+        </server>
+        <server>
+            <id>nexus-snapshot</id>
+            <username>admin</username>
+            <password>@mine2025EL</password>
+        </server>
+        <server>
+            <id>nexus-releases</id>
+            <username>admin</username>
+            <password>@mine2025EL</password>
+        </server>
+
+
+
+        <!--<server>
+            <id>github.com</id>
+            <username>amineelaouni</username>
+            <privateKey>~/.ssh/id_ed25519</privateKey>
+            <passphrase>amine</passphrase>
+            <filePermissions>664</filePermissions>
+            <directoryPermissions>775</directoryPermissions>
+            <configuration>
+                <knownHostsProvider implementation="org.apache.maven.wagon.providers.ssh.knownhost.SingleKnownHostProvider">
+                    <hostKeyChecking>yes</hostKeyChecking>
+                    <contents>SHA256:tEKduTrSk/0vBr8zIQXgFJ0LwrW1B1QKUN31s/8ZjPI</contents>
+                </knownHostsProvider>
+            </configuration>
+        </server>
+        <server>
+            <id>pkg.github.com</id>
+            <username>amineelaouni</username>
+            <password>@mine1986EL</password>
+        </server>-->
+
+
+
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>central</id>
+            <name>central</name>
+            <url>http://localhost:8081/repository/nexus-group</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <!--<profiles>
+        <profile>
+            <id>jboss</id>
+            <repositories>
+                <repository>
+                    <id>redhat-ga</id>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>jboss</activeProfile>
+    </activeProfiles>-->
+
+    <!--<mirrors>
+        <mirror>
+            <id>UK</id>
+            <name>UK Central</name>
+            <url>http://uk.maven.org/maven2</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+    </mirrors>-->
+</settings>
