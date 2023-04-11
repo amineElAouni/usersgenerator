@@ -45,18 +45,16 @@
             <password>@mine1986EL</password>
         </server>-->
 
-
-
     </servers>
 
-    <mirrors>
+    <!--<mirrors>
         <mirror>
             <id>central</id>
             <name>central</name>
             <url>http://localhost:8081/repository/nexus-group</url>
             <mirrorOf>*</mirrorOf>
         </mirror>
-    </mirrors>
+    </mirrors>-->
 
     <!--<profiles>
         <profile>
