@@ -68,7 +68,7 @@
         </repository>
     </repositories>-->
 
-    <!--<repositories>
+    <repositories>
         <repository>
             <id>nexus-snapshot</id>
             <url>http://localhost:8081/repository/nexus-snapshot</url>
@@ -84,7 +84,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-    </repositories>-->
+    </repositories>
 
     <dependencies>
         <!--<dependency>
