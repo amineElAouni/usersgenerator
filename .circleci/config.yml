@@ -39,4 +39,4 @@ jobs:
       # run tests!
       - run: mvn clean
       - run: mvn compile
-      - run: mvn deploy -X -s .circleci/settings.xml -Pnexus
+      - run: mvn deploy -X -s .circleci/settings.xml -Ppackagecloud
