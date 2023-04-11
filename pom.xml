@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.cires.usersgenerator</groupId>
     <artifactId>users-generator</artifactId>
-    <version>1.11-SNAPSHOT</version>
+    <version>1.14-SNAPSHOT</version>
     <name>users-generator</name>
     <description>Users generator project</description>
     <properties>

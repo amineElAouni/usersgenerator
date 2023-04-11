@@ -14,13 +14,13 @@
         </server>
         <server>
             <id>nexus-snapshot</id>
-            <username>${env.NEXUS_RM_USERNAME}</username>
-            <password>${env.NEXUS_RM_PASSWORD}</password>
+            <username>admin</username>
+            <password>@mine2025EL</password>
         </server>
         <server>
             <id>nexus-releases</id>
-            <username>${env.NEXUS_RM_USERNAME}</username>
-            <password>${env.NEXUS_RM_PASSWORD}</password>
+            <username>admin</username>
+            <password>@mine2025EL</password>
         </server>
 
 
