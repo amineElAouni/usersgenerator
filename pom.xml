@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.cires.usersgenerator</groupId>
     <artifactId>users-generator</artifactId>
-    <version>1.15-SNAPSHOT</version>
+    <version>1.17-SNAPSHOT</version>
     <name>users-generator</name>
     <description>Users generator project</description>
     <properties>
@@ -344,6 +344,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
+                <configuration>
+
+                    <scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
+
+                </configuration>
             </plugin>
 
         </plugins>

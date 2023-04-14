@@ -22,6 +22,11 @@
             <username>admin</username>
             <password>@mine2025EL</password>
         </server>
+        <server>
+            <id>github</id>
+            <username>amineelaouni</username>
+            <password>${env.GIT_PWD}</password>
+        </server>
 
 
 
