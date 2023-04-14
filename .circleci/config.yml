@@ -37,4 +37,4 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn deploy -s .circleci/settings.xml -Pnexus
+      - run: mvn deploy -s .circleci/settings.xml -Ppackagecloud
